@@ -40,8 +40,22 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
+    public GameObject scroll;
+
+    private void Start()
+    {
+        Time.timeScale = 0f;
+    }
+
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Time.timeScale = 1f;
+            Destroy(scroll);
+        }
+
         //Checks to see if player is touching ground.
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
