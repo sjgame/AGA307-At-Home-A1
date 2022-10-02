@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Transform playerRoot;
 
+    //Movement variables
     public float defaultSpeed;
     public float sprintSpeed;
     public float currentSpeed;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     //public KeyCode crouchKeyCode;
     public KeyCode slowKeyCode;
 
+    //Sprint fov variables
     public Camera playerCam;
     public float defaultFOV;
     public float sprintFOV;
@@ -44,12 +46,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        //Starts game paused.
         Time.timeScale = 0f;
     }
 
 
     void Update()
     {
+        
+        //Removes popup and starts the game.
         if (Input.GetKeyDown(KeyCode.E))
         {
             Time.timeScale = 1f;
