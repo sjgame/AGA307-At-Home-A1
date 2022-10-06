@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        //Starts game paused.
+        //Starts game paused for the controls popup.
         Time.timeScale = 0f;
     }
 
@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
             playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, defaultFOV, fovChangeSpeed * Time.deltaTime);
         }
 
+        //When holding (left ctrl) and pressing (spacebar) the player will jump higher then usual. A controlled jump.
         if (Input.GetKey(slowKeyCode))
         {
             currentSpeed = speedSlowed;
