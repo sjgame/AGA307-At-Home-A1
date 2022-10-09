@@ -9,7 +9,7 @@ public class Target : MonoBehaviour
 
     public void TakeDamage (float amount)
     {
-        if(FloatingTextPrefab)
+        if(FloatingTextPrefab && health > 0)
         {
             ShowFloatingText();
         }
@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
             Die();
         }
         
-        ShowFloatingText();
+       
     }
 
     void ShowFloatingText()
@@ -28,6 +28,7 @@ public class Target : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        //Destroy the target after a set period of time. The extra time also allows for the hitmarkers to be displayed properly.
+        Destroy(gameObject, 0.6f);
     }
 }
