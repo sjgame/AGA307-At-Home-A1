@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public float enhancedJump = 4f;
-
     public float speedSlowed;
 
     public KeyCode sprintKeyCode;
@@ -24,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Sprint fov variables
     public Camera playerCam;
+   
     public float defaultFOV;
     public float sprintFOV;
     public float fovChangeSpeed;
@@ -38,8 +38,11 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
 
     public Transform groundCheck;
+  
     public float groundDistance = 0.4f;
+    
     public LayerMask groundMask;
+    
     bool isGrounded;
 
     public GameObject scroll;
@@ -105,11 +108,14 @@ public class PlayerMovement : MonoBehaviour
         //Tell the CharacterController to move based on the input, direction, speed and time.
         controller.Move(move * currentSpeed * Time.deltaTime);
 
+
+        //Make player jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
+        //Gravity brings player back to the ground.
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
