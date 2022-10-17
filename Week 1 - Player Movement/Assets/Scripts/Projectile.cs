@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private bool collided;
-    private float damage = 1f;
+    public float damage = 1f;
 
     public GameObject target;
 

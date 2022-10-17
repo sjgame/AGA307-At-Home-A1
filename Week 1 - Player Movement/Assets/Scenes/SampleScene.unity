@@ -11183,6 +11183,12 @@ MonoBehaviour:
   projectileSpeed: 30
   laser: {fileID: 0}
   projectilePrefab: {fileID: 2822517433721222746, guid: b2b94c2375b63594994dd7b0cd74eee4, type: 3}
+  projectiles:
+  - {fileID: 2822517433721222746, guid: b2b94c2375b63594994dd7b0cd74eee4, type: 3}
+  - {fileID: 4727664177207781234, guid: eea1e362897ac8e4db50530522654c36, type: 3}
+  - {fileID: 8012213825926850851, guid: 2385d0e6e82447644adabd32183171ae, type: 3}
+  fireRate: 060000000300000001000000
+  fireSpeed: 0
 --- !u!4 &2136894803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3940587522465671413, guid: b20616675454eff4d96f08f2e954af14, type: 3}

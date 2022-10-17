@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class FiringPoint : MonoBehaviour
     public GameObject target;
     public GameObject projectile;
     public Transform firePoint;
+    
+    private bool collided;
 
     public Camera cam;
 
@@ -14,20 +17,106 @@ public class FiringPoint : MonoBehaviour
     public float distance = 100f;
     public float damage = 1f;
     public float projectileSpeed = 30f;
+    private float timeToFire;
+    //public float fireRate;
 
     //public GameObject projectilePrefab;
     //public float projectileSpeed = 1000f;
 
     public LineRenderer laser;
     public GameObject projectilePrefab;
+    public GameObject[] projectiles;
+    public int[] fireRate;
+    public float fireSpeed;
 
+
+
+    private void Start()
+    {
+        projectile = projectiles[0];
+        fireSpeed = fireRate[0];
+    }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    InstantiateProjectile(firePoint)
+        //}
+
+        //If I press left mouse button, fire the projectie that is selected from the array.
+        if (Input.GetButtonDown("Fire1") && Time.time >= timeToFire)
         {
+            
+           timeToFire = Time.time + 1/fireSpeed;
+            
             Shoot();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            for (int i = 0; i < projectiles.Length; i++)
+            {
+                projectile = projectiles[0];
+                fireSpeed = fireRate[0];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            for (int i = 0; i < projectiles.Length; i++)
+            {
+                projectile = projectiles[1];
+                fireSpeed = fireRate[1];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            for (int i = 0; i < projectiles.Length; i++)
+            {
+                projectile = projectiles[2];
+                fireSpeed = fireRate[2];
+            }
+        }
+
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //If the projectile collides with anything other then the projectile or player it will be destroyed
+
+        if (collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Player" && !collided)
+        {
+            collided = true;
+            Destroy(gameObject);
+        }
+
+
+
+
+        Target target = collision.transform.GetComponent<Target>();
+        if (target != null)
+        {
+            target.TakeDamage(damage);
+        }
+    }
+
+    //private void setActiveWeapon(GameObject activeWeapon)
+    //{
+    //    for (int i = 0; i < weaponList.Count; i++)
+    //    {
+
+    //            if (weaponList[i].name == activeWeapon.name)
+    //            {
+    //                weaponList[i].SetActive(true);
+    //            }
+    //            else
+    //            {
+    //                weaponList[i].SetActive(false);
+    //            }
+
+    //    }
+    //}
+
+
 
     void Shoot()
     {
