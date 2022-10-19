@@ -6,6 +6,30 @@ public class Target : MonoBehaviour
 {
     public float health = 2f;
     public GameObject FloatingTextPrefab;
+    public VariedSize variedSize;
+    public MyType type; 
+
+    void Start()
+    {
+        SetUp();
+    }
+
+    void SetUp()
+    { 
+        //Set up a switch function that allocates the size of a particular target. This is set to public so we can manually change their sizes.
+        switch(variedSize)
+        {
+            case VariedSize.Small:
+                print ("im small");
+                break; 
+            case VariedSize.Medium:
+                print("im medium");
+                break;
+            case VariedSize.Large:
+                print("im large");
+                break;
+        }
+    }
 
     public void TakeDamage (float amount)
     {

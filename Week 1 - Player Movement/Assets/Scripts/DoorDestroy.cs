@@ -14,11 +14,12 @@ public class DoorDestroy : MonoBehaviour
     void Start()
     {
         //listOfTargets.AddRange(GameObject.FindGameObjectsWithTag("Target"));
-        
         //print(listOfTargets.Count);
-
-        
     }
+    
+    /// <summary>
+    /// If the 2 targets are destroyed. Destroy both doors so the player can continue.
+    /// </summary>
     void Update()
     {
         if (!target1 && !target2)
