@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class FiringPoint : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class FiringPoint : MonoBehaviour
     public GameObject[] projectiles;
     public int[] fireRate;
     public float fireSpeed;
+    public GameObject prefab;
 
 
 
@@ -58,6 +60,7 @@ public class FiringPoint : MonoBehaviour
             {
                 projectile = projectiles[0];
                 fireSpeed = fireRate[0];
+                
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -85,14 +88,19 @@ public class FiringPoint : MonoBehaviour
 
         if (collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Player" && !collided)
         {
+            
+
             collided = true;
             Destroy(gameObject);
         }
+        
+
+        
 
 
 
 
-        Target target = collision.transform.GetComponent<Target>();
+            Target target = collision.transform.GetComponent<Target>();
         if (target != null)
         {
             target.TakeDamage(damage);
@@ -140,6 +148,7 @@ public class FiringPoint : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             destination = hit.point;
+            
         }
 
         else

@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
 
     public GameObject target;
 
+    public GameObject prefab;
+   
+
     private Vector3 destination;
     public float distance = 100f;
 
@@ -18,6 +21,12 @@ public class Projectile : MonoBehaviour
         
         if (collision.gameObject.tag != "Projectile" &&  collision.gameObject.tag !="Player" && !collided)
         {
+
+
+
+            GameObject blue = Instantiate(prefab, transform.position, transform.rotation);
+            Destroy(blue, 2f);
+           
             collided = true;
             Destroy(gameObject);
         }

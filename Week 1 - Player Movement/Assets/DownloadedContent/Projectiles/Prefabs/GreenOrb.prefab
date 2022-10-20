@@ -29475,6 +29475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   target: {fileID: 0}
+  prefab: {fileID: 8652319566727268765, guid: 5b66f1485b200924d9bb87052fd6c380, type: 3}
   distance: 100
 --- !u!1 &2823140219261498090
 GameObject:

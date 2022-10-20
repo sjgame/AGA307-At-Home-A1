@@ -129,4 +129,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   target: {fileID: 492440411066961054, guid: 5e8ccba3414b47642b08ad8db8eed709, type: 3}
+  prefab: {fileID: 8652319566727268765, guid: 5b66f1485b200924d9bb87052fd6c380, type: 3}
   distance: 100
