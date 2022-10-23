@@ -3817,15 +3817,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a63aabe55107042973ef5e81de5ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 7
+  rayLength: 19
   layerMaskInteract:
     serializedVersion: 2
     m_Bits: 0
-  excludeLayerName: 
+  excludeLayerName: Level
   enterDungeon: 101
   crosshair: {fileID: 0}
   teleportPlayer: {fileID: 571681784}
   thePlayer: {fileID: 571426597}
+  cam: {fileID: 963194227}
 --- !u!1 &571681780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,7 +3917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571681780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 134.48874, y: 0.5761585, z: 13.934936}
+  m_LocalPosition: {x: 134.48874, y: 4.18, z: 13.934936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10326,7 +10327,7 @@ GameObject:
   - component: {fileID: 1882428722}
   - component: {fileID: 1882428721}
   - component: {fileID: 1882428724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Load
   m_Icon: {fileID: 0}
