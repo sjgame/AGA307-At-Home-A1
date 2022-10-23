@@ -20,15 +20,19 @@ public class LoadDungeon : MonoBehaviour
 
     public Transform teleportPlayer;
     public GameObject thePlayer;
+    public Camera cam;
+
+
     void FixedUpdate()
     {
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         //int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-        if(Physics.Raycast(transform.position, fwd, out hit, rayLength))
+        if(Physics.Raycast(ray, out hit, rayLength))
         {
             //print(hit.collider.name);
             
