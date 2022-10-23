@@ -156,7 +156,8 @@ public class FiringPoint : MonoBehaviour
             destination = ray.GetPoint(1000);
         }
 
-       
+        
+        
 
 
         InstantiateProjectile(firePoint);
@@ -166,57 +167,60 @@ public class FiringPoint : MonoBehaviour
             var projectileObj = Instantiate(projectile, firePoint.position, Quaternion.identity) as GameObject;
             projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * projectileSpeed;
         }
-       
+
         
-        
-        
-        
-        //Target target = hit.transform.GetComponent<Target>();
-        //if (target != null)
-        //{
-        //    target.TakeDamage(damage);
-        //}
+    
 
 
 
-        //InClass Method of raycasts (Testing)
-
-        //Ray ray = new Ray(transform.position, transform.forward);
-        //RaycastHit hit; // A RaycastHit variable that stores information on what is hit.
-
-        ////Forward direction Vector based on gameObject
-        //Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
 
-        //////Create a reference to hold our instantiated object.
-        ////GameObject projectileInstance;
-        //////Instantiate our projectile prefab at this objects position and rotation.
-        ////projectileInstance = Instantiate(projectilePrefab, transform.position, transform.rotation);
-        //////Get the rigidbody attached to the projectile.
-        ////projectileInstance.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
-
-
-        //if (Physics.Raycast(transform.position, fwd, out hit, distance))
-        //{
-        //    //Prints name of specific collider hit.
-        //    print(hit.collider.name);
-
-        //    laser.SetPosition(0, transform.position);
-        //    laser.SetPosition(1, hit.point);
-
-        //    Target target = hit.transform.GetComponent<Target>();
-        //    if (target != null)
-        //    {
-        //        target.TakeDamage(damage);
-        //    }
+    //Target target = hit.transform.GetComponent<Target>();
+    //if (target != null)
+    //{
+    //    target.TakeDamage(damage);
+    //}
 
 
 
-        //    //If the hit collides with the tag "Target"
-        //    //if(hit.collider.CompareTag("Target"))
-        //    //{
-        //    //    Destroy(gameObject);
-        //    //}
-        //}
-    }
+    //InClass Method of raycasts (Testing)
+
+    //Ray ray = new Ray(transform.position, transform.forward);
+    //RaycastHit hit; // A RaycastHit variable that stores information on what is hit.
+
+    ////Forward direction Vector based on gameObject
+    //Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+
+    //////Create a reference to hold our instantiated object.
+    ////GameObject projectileInstance;
+    //////Instantiate our projectile prefab at this objects position and rotation.
+    ////projectileInstance = Instantiate(projectilePrefab, transform.position, transform.rotation);
+    //////Get the rigidbody attached to the projectile.
+    ////projectileInstance.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
+
+
+    //if (Physics.Raycast(transform.position, fwd, out hit, distance))
+    //{
+    //    //Prints name of specific collider hit.
+    //    print(hit.collider.name);
+
+    //    laser.SetPosition(0, transform.position);
+    //    laser.SetPosition(1, hit.point);
+
+    //    Target target = hit.transform.GetComponent<Target>();
+    //    if (target != null)
+    //    {
+    //        target.TakeDamage(damage);
+    //    }
+
+
+
+    //    //If the hit collides with the tag "Target"
+    //    //if(hit.collider.CompareTag("Target"))
+    //    //{
+    //    //    Destroy(gameObject);
+    //    //}
+    //}
+}
 }
