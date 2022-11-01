@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class Target : GameBehaviour
 {
     public float health = 2f;
     public GameObject FloatingTextPrefab;
     public VariedSize variedSize;
-    public MyType type; 
+    public MyType type;
+
+    public static event Action<GameObject> OnEnemyHit = null;
+    public static event Action<GameObject> OnEnemyDie = null;
 
     void Start()
     {
@@ -43,6 +47,10 @@ public class Target : MonoBehaviour
             Die();
             GetComponent<Renderer>().material.color = Color.red;
         }
+        else
+        {
+            OnEnemyHit?.Invoke(this.gameObject);
+        }
         
        
     }
@@ -54,6 +62,10 @@ public class Target : MonoBehaviour
     void Die()
     {
         //Destroy the target after a set period of time. The extra time also allows for the hitmarkers to be displayed properly.
+        
         Destroy(gameObject, 0.6f);
+        StopAllCoroutines();
+        _EM.enemies.Remove(gameObject);
+        OnEnemyDie?.Invoke(this.gameObject);
     }
 }

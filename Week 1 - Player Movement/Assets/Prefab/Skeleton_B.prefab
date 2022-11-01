@@ -1233,6 +1233,8 @@ GameObject:
   - component: {fileID: 6816307199152262461}
   - component: {fileID: 6816307200239384041}
   - component: {fileID: 6816307200239384040}
+  - component: {fileID: 6622974806047913882}
+  - component: {fileID: -7812329904045198084}
   m_Layer: 0
   m_Name: Skeleton_B
   m_TagString: Target
@@ -1306,6 +1308,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   FloatingTextPrefab: {fileID: 7446426920523133406, guid: 3a9c3bed73fc5fc40b5a08fc8814a0b2, type: 3}
+  variedSize: 0
+  type: 0
+--- !u!114 &6622974806047913882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816307199161892817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4115324ae63e247b7f2f8302484b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.16
+  target: {fileID: 0}
+  minDist: 2.97
+  mySpeed: 4.13
+  myPatrol: 1
+  myType: 0
+--- !u!54 &-7812329904045198084
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816307199161892817}
+  serializedVersion: 2
+  m_Mass: 9.62
+  m_Drag: 0.96
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &6816307199161894847
 GameObject:
   m_ObjectHideFlags: 0
