@@ -11,10 +11,12 @@ public class UI_Manager : Singleton<UI_Manager>
     public TMP_Text enemyCountText;
     public TMP_Text difficultyText;
     public TMP_Text timerText;
+    public TMP_Text weaponText;
 
     void Start()
     {
         UpdateScore(0);
+        //UpdateWeapon(weaponText.text);
     }
 
     public void UpdateScore(int _score) //Display the score in TMP text
@@ -36,5 +38,10 @@ public class UI_Manager : Singleton<UI_Manager>
     {
         timerText.text = _time.ToString("##.##");
     }
+
+    //public void UpdateWeapon(string _weaponSelected)
+    //{
+    //    weaponText.text = _weaponSelected;
+    //}
 }
 

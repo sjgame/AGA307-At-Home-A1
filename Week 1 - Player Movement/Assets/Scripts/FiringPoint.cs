@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
+using TMPro;
 
-public class FiringPoint : MonoBehaviour
+public class FiringPoint : Singleton<FiringPoint>
 {
     public GameObject target;
     public GameObject projectile;
@@ -30,6 +31,11 @@ public class FiringPoint : MonoBehaviour
     public int[] fireRate;
     public float fireSpeed;
     public GameObject prefab;
+    public List<string> weapons;
+    public string weaponType;
+    public TMP_Text weaponText;
+
+
 
 
 
@@ -37,7 +43,14 @@ public class FiringPoint : MonoBehaviour
     {
         projectile = projectiles[0];
         fireSpeed = fireRate[0];
+        weaponType = weapons[0];
+        
+        
     }
+
+   
+    
+
     void Update()
     {
         //if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -60,6 +73,7 @@ public class FiringPoint : MonoBehaviour
             {
                 projectile = projectiles[0];
                 fireSpeed = fireRate[0];
+                weaponType = weapons[0];
                 
             }
         }
@@ -69,6 +83,7 @@ public class FiringPoint : MonoBehaviour
             {
                 projectile = projectiles[1];
                 fireSpeed = fireRate[1];
+                weaponType = weapons[1];
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -77,9 +92,18 @@ public class FiringPoint : MonoBehaviour
             {
                 projectile = projectiles[2];
                 fireSpeed = fireRate[2];
+                weaponType = weapons[2];
             }
         }
+        weaponText.text = "Weapon: " + weaponType;
 
+    }
+    
+
+    public void UpdateWeapon(string _weaponSelected)
+    {
+       weaponType = _weaponSelected;
+      
     }
 
     private void OnCollisionEnter(Collision collision)

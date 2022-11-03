@@ -7,7 +7,10 @@ public class GameBehaviour : MonoBehaviour
     
     protected static GameManager _GM { get { return GameManager.instance; } }
     protected static EnemyManager _EM { get { return EnemyManager.instance; } }
-    
+
+    protected static FiringPoint _FP { get { return FiringPoint.instance; } }
+
+
     protected static UI_Manager _UI { get { return UI_Manager.instance; } }
     public static List<T> ShuffleList<T>(List<T> _list)
     {

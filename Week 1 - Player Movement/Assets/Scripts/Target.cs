@@ -9,6 +9,7 @@ public class Target : GameBehaviour
     public GameObject FloatingTextPrefab;
     public VariedSize variedSize;
     public MyType type;
+    
 
     public static event Action<GameObject> OnEnemyHit = null;
     public static event Action<GameObject> OnEnemyDie = null;

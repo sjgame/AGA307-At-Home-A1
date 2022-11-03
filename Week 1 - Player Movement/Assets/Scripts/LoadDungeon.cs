@@ -23,7 +23,12 @@ public class LoadDungeon : MonoBehaviour
     public Camera cam;
 
     public GameObject FloatingTextPrefab;
+    public GameObject doorText;
 
+    private void Start()
+    {
+        doorText.SetActive(false);
+    }
 
     void FixedUpdate()
     {
@@ -40,7 +45,11 @@ public class LoadDungeon : MonoBehaviour
             
             if(hit.collider.CompareTag("Load"))
             {
-                ShowText();
+                //ShowText();
+
+                doorText.SetActive(true);
+
+                
                 //print("hit");
                
                 if(Input.GetKeyDown(KeyCode.E))
@@ -50,15 +59,20 @@ public class LoadDungeon : MonoBehaviour
                 }
 
             }
+            else
+            {
+                doorText.SetActive(false);
+            }
+           
         }
 
        
     }
-    void ShowText()
-    {
-        Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
-        FloatingTextPrefab.transform.LookAt(2 * transform.position - Camera.main.transform.position);
-    }
+    //void ShowText()
+    //{
+    //    Instantiate(FloatingTextPrefab, door.transform.position, Quaternion.identity, transform);
+    //    FloatingTextPrefab.transform.LookAt(2 * transform.position - Camera.main.transform.position);
+    //}
 
 
 
