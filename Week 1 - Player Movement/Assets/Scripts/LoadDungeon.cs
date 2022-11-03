@@ -22,6 +22,8 @@ public class LoadDungeon : MonoBehaviour
     public GameObject thePlayer;
     public Camera cam;
 
+    public GameObject FloatingTextPrefab;
+
 
     void FixedUpdate()
     {
@@ -38,6 +40,7 @@ public class LoadDungeon : MonoBehaviour
             
             if(hit.collider.CompareTag("Load"))
             {
+                ShowText();
                 //print("hit");
                
                 if(Input.GetKeyDown(KeyCode.E))
@@ -50,6 +53,11 @@ public class LoadDungeon : MonoBehaviour
         }
 
        
+    }
+    void ShowText()
+    {
+        Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        FloatingTextPrefab.transform.LookAt(2 * transform.position - Camera.main.transform.position);
     }
 
 
