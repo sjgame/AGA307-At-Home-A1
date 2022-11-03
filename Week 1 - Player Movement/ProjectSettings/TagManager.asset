@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Load
   - DoorText
+  - Enter
   layers:
   - Default
   - TransparentFX

@@ -39,7 +39,7 @@ public class LoadDungeon : MonoBehaviour
 
         //int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-        if(Physics.Raycast(ray, out hit, rayLength))
+        if(Physics.Raycast(transform.position, fwd, out hit, rayLength))
         {
             //print(hit.collider.name);
             
@@ -52,11 +52,11 @@ public class LoadDungeon : MonoBehaviour
                 
                 //print("hit");
                
-                if(Input.GetKeyDown(KeyCode.E))
-                {
-                    print("hit");
-                    thePlayer.transform.position = teleportPlayer.position;
-                }
+                //if(Input.GetKeyDown(KeyCode.E))
+                //{
+                //    print("hit");
+                //    Continue();
+                //}
 
             }
             else
@@ -65,8 +65,18 @@ public class LoadDungeon : MonoBehaviour
             }
            
         }
-
        
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enter") 
+        {
+            Continue();
+        }
+    }
+    void Continue()
+    {
+        thePlayer.transform.position = teleportPlayer.position;
     }
     //void ShowText()
     //{

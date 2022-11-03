@@ -95,6 +95,7 @@ public class FiringPoint : Singleton<FiringPoint>
                 weaponType = weapons[2];
             }
         }
+        
         weaponText.text = "Weapon: " + weaponType;
 
     }
