@@ -26,12 +26,13 @@ public class LoadDungeon : MonoBehaviour
     public GameObject doorText;
 
     private void Start()
-    {
+    {   //Initially sets the door text as false so it is not displayed.
         doorText.SetActive(false);
     }
 
-    void FixedUpdate()
-    {
+    public void FixedUpdate()
+    {   
+        //For our raycast variabe we get the posiion of our raycast based on our camera and set parameters. 
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         
@@ -46,34 +47,39 @@ public class LoadDungeon : MonoBehaviour
             if(hit.collider.CompareTag("Load"))
             {
                 //ShowText();
-
+                //When we are looking at the door display UI to tell the player what to do.
                 doorText.SetActive(true);
 
-                
+
                 //print("hit");
-               
-                //if(Input.GetKeyDown(KeyCode.E))
-                //{
-                //    print("hit");
-                //    Continue();
-                //}
+
+                
+                //If we press E on the door trigger the player will be teleported to a set location
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    print("hit");
+                    Continue();
+                }
 
             }
             else
-            {
+            {   //When we look away from the door collider disable the text. 
                 doorText.SetActive(false);
             }
            
         }
        
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enter") 
-        {
-            Continue();
-        }
-    }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Load")) 
+    //    {
+    //        print("collided");
+    //        Continue();
+    //    }
+    //}
+    
+    //Function teleports our player to a set location.
     void Continue()
     {
         thePlayer.transform.position = teleportPlayer.position;

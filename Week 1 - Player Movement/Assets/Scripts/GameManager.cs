@@ -41,9 +41,7 @@ public class GameManager : Singleton<GameManager>
             timer += Time.deltaTime;
             _UI.UpdateTimer(timer);
         }
-
     }
-
     void Setup()
     {
         switch (difficulty)

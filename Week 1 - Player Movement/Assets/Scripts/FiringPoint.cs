@@ -41,32 +41,20 @@ public class FiringPoint : Singleton<FiringPoint>
 
     private void Start()
     {
+        //Sets the default weapon to the Fire Ball from the list.
         projectile = projectiles[0];
         fireSpeed = fireRate[0];
-        weaponType = weapons[0];
-        
-        
+        weaponType = weapons[0]; 
     }
-
-   
-    
-
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    InstantiateProjectile(firePoint)
-        //}
-
         //If I press left mouse button, fire the projectie that is selected from the array.
         if (Input.GetButtonDown("Fire1") && Time.time >= timeToFire)
-        {
-            
+        { 
            timeToFire = Time.time + 1/fireSpeed;
-            
             Shoot();
         }
-
+        //1 on the keyboard selects the Fire Ball projectile.
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             for (int i = 0; i < projectiles.Length; i++)
@@ -77,6 +65,7 @@ public class FiringPoint : Singleton<FiringPoint>
                 
             }
         }
+        //2 on the keyboard selects the Green Ball projectile.
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             for (int i = 0; i < projectiles.Length; i++)
@@ -86,6 +75,7 @@ public class FiringPoint : Singleton<FiringPoint>
                 weaponType = weapons[1];
             }
         }
+        //3 on the keyboard selects the Red Ball projectile. 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             for (int i = 0; i < projectiles.Length; i++)
@@ -95,43 +85,28 @@ public class FiringPoint : Singleton<FiringPoint>
                 weaponType = weapons[2];
             }
         }
-        
+        //Displays what weapon is selected through the list.
         weaponText.text = "Weapon: " + weaponType;
-
     }
-    
-
     public void UpdateWeapon(string _weaponSelected)
     {
        weaponType = _weaponSelected;
-      
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         //If the projectile collides with anything other then the projectile or player it will be destroyed
 
         if (collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Player" && !collided)
         {
-            
-
             collided = true;
             Destroy(gameObject);
         }
-        
-
-        
-
-
-
-
             Target target = collision.transform.GetComponent<Target>();
         if (target != null)
         {
             target.TakeDamage(damage);
         }
     }
-
     //private void setActiveWeapon(GameObject activeWeapon)
     //{
     //    for (int i = 0; i < weaponList.Count; i++)
@@ -148,13 +123,8 @@ public class FiringPoint : Singleton<FiringPoint>
 
     //    }
     //}
-
-
-
     void Shoot()
     {
-
-
         ////Create a reference to hold our instantiated object.
         //GameObject projectileInstance;
         ////Instantiate our projectile prefab at this objects position and rotation.
@@ -162,7 +132,6 @@ public class FiringPoint : Singleton<FiringPoint>
         ////Get the rigidbody attached to the projectile.
         //projectileInstance.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
 
-        
         
         //This is a method that uses a combination of Raycasts and Instantiates to fire a projectile.
         
@@ -173,18 +142,11 @@ public class FiringPoint : Singleton<FiringPoint>
         if (Physics.Raycast(ray, out hit))
         {
             destination = hit.point;
-            
         }
-
         else
         {
             destination = ray.GetPoint(1000);
         }
-
-        
-        
-
-
         InstantiateProjectile(firePoint);
         //Creates the projectile at fire point positions and fires it in the direction set by the raycast.
         void InstantiateProjectile(Transform firePoint)
@@ -192,21 +154,11 @@ public class FiringPoint : Singleton<FiringPoint>
             var projectileObj = Instantiate(projectile, firePoint.position, Quaternion.identity) as GameObject;
             projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * projectileSpeed;
         }
-
-        
-    
-
-
-
-
-
     //Target target = hit.transform.GetComponent<Target>();
     //if (target != null)
     //{
     //    target.TakeDamage(damage);
     //}
-
-
 
     //InClass Method of raycasts (Testing)
 
@@ -216,14 +168,12 @@ public class FiringPoint : Singleton<FiringPoint>
     ////Forward direction Vector based on gameObject
     //Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-
     //////Create a reference to hold our instantiated object.
     ////GameObject projectileInstance;
     //////Instantiate our projectile prefab at this objects position and rotation.
     ////projectileInstance = Instantiate(projectilePrefab, transform.position, transform.rotation);
     //////Get the rigidbody attached to the projectile.
     ////projectileInstance.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
-
 
     //if (Physics.Raycast(transform.position, fwd, out hit, distance))
     //{
@@ -238,7 +188,6 @@ public class FiringPoint : Singleton<FiringPoint>
     //    {
     //        target.TakeDamage(damage);
     //    }
-
 
 
     //    //If the hit collides with the tag "Target"
