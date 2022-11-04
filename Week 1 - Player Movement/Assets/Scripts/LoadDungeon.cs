@@ -55,7 +55,7 @@ public class LoadDungeon : MonoBehaviour
 
                 
                 //If we press E on the door trigger the player will be teleported to a set location
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.G))
                 {
                     print("hit");
                     Continue();

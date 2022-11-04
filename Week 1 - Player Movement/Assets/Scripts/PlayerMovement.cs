@@ -52,18 +52,14 @@ public class PlayerMovement : MonoBehaviour
         //Starts game paused for the controls popup.
         Time.timeScale = 0f;
     }
-
-
     void Update()
     {
-        
         //Removes popup and starts the game.
         if (Input.GetKeyDown(KeyCode.E))
         {
             Time.timeScale = 1f;
             Destroy(scroll);
         }
-
         //Checks to see if player is touching ground.
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -71,8 +67,6 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
-
-
         /*Allow player to run faster by pressing down specified keycode.
           Also changes the FOV to create the illusion of running faster.*/
         if (Input.GetKey(sprintKeyCode))
@@ -85,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = defaultSpeed;
             playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, defaultFOV, fovChangeSpeed * Time.deltaTime);
         }
-
         //When holding (left ctrl) and pressing (spacebar) the player will jump higher then usual. A controlled jump.
         if (Input.GetKey(slowKeyCode))
         {
@@ -96,18 +89,13 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpHeight = 3f;
         }
-
-
         //Get WASD movement and creates variable.
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
         //Create a move variable that transforms the position and direction based on the input.
         Vector3 move = transform.right * x + transform.forward * z;
-
         //Tell the CharacterController to move based on the input, direction, speed and time.
         controller.Move(move * currentSpeed * Time.deltaTime);
-
 
         //Make player jump
         if (Input.GetButtonDown("Jump") && isGrounded)
