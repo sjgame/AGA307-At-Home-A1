@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 public class Target : GameBehaviour
@@ -11,6 +13,8 @@ public class Target : GameBehaviour
     public VariedSize variedSize;
     public MyType type;
     public float scaleFactor;
+    //public float plusTime;
+    
 
     public static event Action<GameObject> OnEnemyHit = null;
     public static event Action<GameObject> OnEnemyDie = null;
@@ -33,7 +37,8 @@ public class Target : GameBehaviour
                 break;
             case VariedSize.Large:
                 print("im large");
-               
+                GetComponent<EnemyMove>(). speed =5f;
+
                 transform.localScale = Vector3.one * scaleFactor;
                 break;
         }
@@ -49,6 +54,7 @@ public class Target : GameBehaviour
         {   //If the targets health = 0 destroy it and change the colour of it. 
             Die();
             GetComponent<Renderer>().material.color = Color.red;
+            _GM.GetComponent<GameManager>().timer += 5;
         }
         else
         {

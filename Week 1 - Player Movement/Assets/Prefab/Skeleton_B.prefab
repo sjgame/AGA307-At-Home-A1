@@ -1310,6 +1310,7 @@ MonoBehaviour:
   FloatingTextPrefab: {fileID: 7446426920523133406, guid: 3a9c3bed73fc5fc40b5a08fc8814a0b2, type: 3}
   variedSize: 0
   type: 0
+  scaleFactor: 0
 --- !u!114 &6622974806047913882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6.49
   target: {fileID: 0}
-  minDist: 24.51
+  minDist: 27.3
   maxdist: 3.89
   mySpeed: 4.13
   myPatrol: 1

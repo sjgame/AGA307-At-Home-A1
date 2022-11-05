@@ -132,7 +132,6 @@ public class FiringPoint : Singleton<FiringPoint>
         ////Get the rigidbody attached to the projectile.
         //projectileInstance.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
 
-        
         //This is a method that uses a combination of Raycasts and Instantiates to fire a projectile.
         
         //Sets initial point of the raycast to the player camera, or where the player is looking.

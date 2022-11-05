@@ -36,7 +36,7 @@ public class UI_Manager : Singleton<UI_Manager>
     }
     public void UpdateTimer(float _time)
     {
-        timerText.text = _time.ToString("##.##");
+        timerText.text = "Time: " + _time.ToString("##.##");
     }
 
     //public void UpdateWeapon(string _weaponSelected)

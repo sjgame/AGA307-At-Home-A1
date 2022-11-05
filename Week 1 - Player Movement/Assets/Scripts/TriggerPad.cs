@@ -35,17 +35,12 @@ public class TriggerPad : MonoBehaviour
         //float xValue = sphere.transform.localScale.x;
         //float yValue = sphere.transform.localScale.y;
         //float zValue = sphere.transform.localScale.z;
-       
         //float xScale = Mathf.Clamp(xValue, xMin, xMax);
         //float yScale = Mathf.Clamp(yValue, yMin, yMax);
         //float zScale = Mathf.Clamp(zValue, zMin, zMax);
 
-       
-        
         sphere.transform.localScale += new Vector3(1, 1, 1) * 0.01f;
 
-       
-      
     }
     //private void Update()
     //{
@@ -60,9 +55,7 @@ public class TriggerPad : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
 
-
         sphere.transform.localScale = Vector3.one;
-
 
     }
 }

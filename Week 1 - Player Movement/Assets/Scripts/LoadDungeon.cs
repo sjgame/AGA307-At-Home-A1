@@ -51,10 +51,8 @@ public class LoadDungeon : MonoBehaviour
                 //When we are looking at the door display UI to tell the player what to do.
                 doorText.SetActive(true);
 
-
                 //print("hit");
 
-                
                 //If we press E on the door trigger the player will be teleported to a set location
                 if (Input.GetKeyDown(KeyCode.G))
                 {

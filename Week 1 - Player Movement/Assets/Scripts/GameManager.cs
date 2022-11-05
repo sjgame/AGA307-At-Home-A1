@@ -16,31 +16,35 @@ public class GameManager : Singleton<GameManager>
 {
     public static event Action<Difficulty> OnDifficultyChanged = null;
 
-    public float health;
+    
 
     public GameState gameState;
     public Difficulty difficulty;
     public int score;
     int scoreMultiplyer;
-    float timer;
+    public float timer;
+    float plusTimer;
 
 
     public float damage;
 
-    private void Start()
+    public void Start()
     {
-        timer = 0;
+        timer = 30;
         Setup();
         OnDifficultyChanged?.Invoke(difficulty);
+        //AddTime();
+        
 
     }
-    private void Update()
+    public void Update()
     {
         if (gameState == GameState.Playing)
         {
-            timer += Time.deltaTime;
+            timer -= Time.deltaTime;
             _UI.UpdateTimer(timer);
         }
+  
     }
     void Setup()
     {
@@ -57,6 +61,15 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
     }
+    //public void AddTime()
+    //{
+    //    plusTimer = GetComponent<Target>().health;
+    //    if (plusTimer <= 0f)
+    //    {
+    //        timer += 50f;
+            
+    //    }
+    //}
 
     public void AddScore(int _score)
     {
