@@ -30,10 +30,11 @@ public class LoadDungeon : MonoBehaviour
         doorText.SetActive(false);
     }
 
-    public void FixedUpdate()
+    void FixedUpdate()
     {   
         //For our raycast variabe we get the posiion of our raycast based on our camera and set parameters. 
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        
         RaycastHit hit;
         
         Vector3 fwd = transform.TransformDirection(Vector3.forward);

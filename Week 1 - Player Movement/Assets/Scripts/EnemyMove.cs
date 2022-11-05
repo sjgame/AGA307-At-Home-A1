@@ -13,6 +13,7 @@ public class EnemyMove : GameBehaviour
     public Transform target;
 
     public float minDist = 1f;
+    public float maxdist = 3f;
 
     public float mySpeed;
 
@@ -91,8 +92,9 @@ public class EnemyMove : GameBehaviour
         //get the distance between the chaser and the target
         float distance = Vector3.Distance(transform.position, target.position);
         //so long as the chaser is farther away than the minimum distance, move towards it at rate speed.
-        if (distance > minDist)
+        if (distance < minDist && distance > maxdist)
             transform.position += transform.forward * speed * Time.deltaTime;
+        
     }
     // Set the target of the chaser
     public void SetTarget(Transform newTarget)

@@ -10,7 +10,8 @@ public class Target : GameBehaviour
     
     public VariedSize variedSize;
     public MyType type;
-    
+    public float scaleFactor;
+
     public static event Action<GameObject> OnEnemyHit = null;
     public static event Action<GameObject> OnEnemyDie = null;
 
@@ -32,6 +33,8 @@ public class Target : GameBehaviour
                 break;
             case VariedSize.Large:
                 print("im large");
+               
+                transform.localScale = Vector3.one * scaleFactor;
                 break;
         }
     }
