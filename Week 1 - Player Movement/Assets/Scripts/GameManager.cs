@@ -24,6 +24,8 @@ public class GameManager : Singleton<GameManager>
     int scoreMultiplyer;
     public float timer;
     float plusTimer;
+    public VariedSize currentSize;
+    public float scaleFactor;
 
 
     public float damage;
@@ -33,9 +35,7 @@ public class GameManager : Singleton<GameManager>
         timer = 30;
         Setup();
         OnDifficultyChanged?.Invoke(difficulty);
-        //AddTime();
-        
-
+ 
     }
     public void Update()
     {
@@ -44,23 +44,31 @@ public class GameManager : Singleton<GameManager>
             timer -= Time.deltaTime;
             _UI.UpdateTimer(timer);
         }
-  
+
     }
+   
     void Setup()
     {
+        
         switch (difficulty)
         {
             case Difficulty.Easy:
                 scoreMultiplyer = 1;
+                currentSize = VariedSize.Small;
                 break;
             case Difficulty.Medium:
                 scoreMultiplyer = 2;
+                currentSize = VariedSize.Medium;
                 break;
             case Difficulty.Hard:
                 scoreMultiplyer = 3;
+                currentSize = VariedSize.Large;
                 break;
         }
+        
     }
+    
+    
     //public void AddTime()
     //{
     //    plusTimer = GetComponent<Target>().health;
@@ -108,12 +116,16 @@ public class GameManager : Singleton<GameManager>
        Target.OnEnemyDie -= OnEnemyDie;
     }
 
+    
+
     void OnEnemyHit(GameObject _enemy)
     {
         AddScore(10);
+        timer += 1f;
     }
     void OnEnemyDie(GameObject _enemy)
     {
         AddScore(100);
+        timer += 4f;
     }
 }

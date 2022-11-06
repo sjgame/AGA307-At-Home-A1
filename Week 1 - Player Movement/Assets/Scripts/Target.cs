@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Timers;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class Target : GameBehaviour
     public MyType type;
     public float scaleFactor;
     //public float plusTime;
+    public float timer;
     
 
     public static event Action<GameObject> OnEnemyHit = null;
@@ -54,13 +56,15 @@ public class Target : GameBehaviour
         {   //If the targets health = 0 destroy it and change the colour of it. 
             Die();
             GetComponent<Renderer>().material.color = Color.red;
-            _GM.GetComponent<GameManager>().timer += 5;
+            _GM.timer += 5f;
+            _UI.UpdateTimer(timer);
         }
         else
         {
             OnEnemyHit?.Invoke(this.gameObject);
         }
     }
+
     void ShowFloatingText()
     {   //Instantiates our damage text on the position of the target.
         Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
