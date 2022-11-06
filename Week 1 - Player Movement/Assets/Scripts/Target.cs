@@ -56,8 +56,8 @@ public class Target : GameBehaviour
         {   //If the targets health = 0 destroy it and change the colour of it. 
             Die();
             GetComponent<Renderer>().material.color = Color.red;
-            _GM.timer += 5f;
-            _UI.UpdateTimer(timer);
+            //_GM.timer += 5f;
+            //_UI.UpdateTimer(timer);
         }
         else
         {
@@ -69,12 +69,14 @@ public class Target : GameBehaviour
     {   //Instantiates our damage text on the position of the target.
         Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
     }
-    void Die()
+    public void Die()
     {
         //Destroy the target after a set period of time. The extra time also allows for the hitmarkers to be displayed properly.
         Destroy(gameObject, 0.6f);
+        
         StopAllCoroutines();
         _EM.enemies.Remove(gameObject);
         OnEnemyDie?.Invoke(this.gameObject);
+        
     }
 }

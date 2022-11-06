@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class UI_Manager : Singleton<UI_Manager>
 {
     // Start is called before the first frame update
@@ -12,11 +13,13 @@ public class UI_Manager : Singleton<UI_Manager>
     public TMP_Text difficultyText;
     public TMP_Text timerText;
     public TMP_Text weaponText;
+    
 
     void Start()
     {
         UpdateScore(0);
         //UpdateWeapon(weaponText.text);
+        
     }
 
     public void UpdateScore(int _score) //Display the score in TMP text
@@ -28,7 +31,7 @@ public class UI_Manager : Singleton<UI_Manager>
     }
     public void UpdateEnemyCount(int _count)
     {
-        enemyCountText.text = "Enemy Count: " + _count;
+        enemyCountText.text = "Targets Remaining: " + _count;
     }
     public void UpdateDifficulty(int _difficulty)
     {

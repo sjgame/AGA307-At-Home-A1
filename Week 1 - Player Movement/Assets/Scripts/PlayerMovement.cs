@@ -50,16 +50,16 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         //Starts game paused for the controls popup.
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
     void Update()
     {
         //Removes popup and starts the game.
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Time.timeScale = 1f;
-            Destroy(scroll);
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Time.timeScale = 1f;
+        //    Destroy(scroll);
+        //}
         //Checks to see if player is touching ground.
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 

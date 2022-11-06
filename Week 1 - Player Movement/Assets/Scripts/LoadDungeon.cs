@@ -50,24 +50,23 @@ public class LoadDungeon : MonoBehaviour
                 //ShowText();
                 //When we are looking at the door display UI to tell the player what to do.
                 doorText.SetActive(true);
+                //Continue();
 
                 //print("hit");
 
                 //If we press E on the door trigger the player will be teleported to a set location
+
                 if (Input.GetKeyDown(KeyCode.G))
                 {
                     print("hit");
                     Continue();
                 }
-
             }
-            else
-            {   //When we look away from the door collider disable the text. 
-                doorText.SetActive(false);
-            }
-           
         }
-       
+        else
+        {   //When we look away from the door collider disable the text. 
+            doorText.SetActive(false);
+        }
     }
     //void OnTriggerEnter(Collider other)
     //{
@@ -88,8 +87,4 @@ public class LoadDungeon : MonoBehaviour
     //    Instantiate(FloatingTextPrefab, door.transform.position, Quaternion.identity, transform);
     //    FloatingTextPrefab.transform.LookAt(2 * transform.position - Camera.main.transform.position);
     //}
-
-
-
-
 }

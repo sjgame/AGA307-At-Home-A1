@@ -48,6 +48,7 @@ public class EnemyManager : Singleton<EnemyManager>
             GameObject enemy = Instantiate(enemyTypes[Random.Range(0, enemyTypes.Length)], spawnPoints[i].position,
             spawnPoints[i].rotation, transform);
             enemies.Add(enemy);
+            _UI.UpdateEnemyCount(enemies.Count);
         }
     }
     void SpawnEnemy()
@@ -67,6 +68,9 @@ public class EnemyManager : Singleton<EnemyManager>
     }
     public Transform GetRandomSpawnPoint()
     {
+        //Creates random spawn points based on our current spawn points.
         return spawnPoints[Random.Range(0, spawnPoints.Length)];
     }
+   
+
 }

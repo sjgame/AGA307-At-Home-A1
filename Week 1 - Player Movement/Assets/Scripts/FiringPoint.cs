@@ -34,6 +34,9 @@ public class FiringPoint : Singleton<FiringPoint>
     public List<string> weapons;
     public string weaponType;
     public TMP_Text weaponText;
+    public TMP_Text weapon1;
+    public TMP_Text weapon2;
+    public TMP_Text weapon3;
 
 
 
@@ -44,7 +47,8 @@ public class FiringPoint : Singleton<FiringPoint>
         //Sets the default weapon to the Fire Ball from the list.
         projectile = projectiles[0];
         fireSpeed = fireRate[0];
-        weaponType = weapons[0]; 
+        weaponType = weapons[0];
+        weapon1.color = Color.red;
     }
     void Update()
     {
@@ -62,6 +66,9 @@ public class FiringPoint : Singleton<FiringPoint>
                 projectile = projectiles[0];
                 fireSpeed = fireRate[0];
                 weaponType = weapons[0];
+                weapon1.color = Color.red;
+                weapon2.color = Color.white;
+                weapon3.color = Color.white;
                 
             }
         }
@@ -73,6 +80,9 @@ public class FiringPoint : Singleton<FiringPoint>
                 projectile = projectiles[1];
                 fireSpeed = fireRate[1];
                 weaponType = weapons[1];
+                weapon1.color = Color.white;
+                weapon2.color = Color.red;
+                weapon3.color = Color.white;
             }
         }
         //3 on the keyboard selects the Red Ball projectile. 
@@ -83,6 +93,9 @@ public class FiringPoint : Singleton<FiringPoint>
                 projectile = projectiles[2];
                 fireSpeed = fireRate[2];
                 weaponType = weapons[2];
+                weapon1.color = Color.white;
+                weapon2.color = Color.white;
+                weapon3.color = Color.red;
             }
         }
         //Displays what weapon is selected through the list.

@@ -6,12 +6,14 @@ public class TriggerPad : MonoBehaviour
 
 {
     public GameObject sphere;
+    public Vector3 endScale;
+    public Vector3 startScale = new Vector3(3, 3, 3);
 
-    public Vector3 endScale = Vector3.one * 3.0f;
+    //public Vector3 endScale = Vector3.one * 3.0f;
 
-    public float xMin = 1, xMax =3;
-    public float yMin = 1, yMax =3;
-    public float zMin = 1, zMax =3;
+    float xMin = 1, xMax =3;
+    float yMin = 1, yMax =3;
+    float zMin = 1, zMax =3;
 
     
 
@@ -38,7 +40,7 @@ public class TriggerPad : MonoBehaviour
         //float xScale = Mathf.Clamp(xValue, xMin, xMax);
         //float yScale = Mathf.Clamp(yValue, yMin, yMax);
         //float zScale = Mathf.Clamp(zValue, zMin, zMax);
-
+        //if (sphere.transform.localScale == Vector3.one)
         sphere.transform.localScale += new Vector3(1, 1, 1) * 0.01f;
 
     }
@@ -55,7 +57,34 @@ public class TriggerPad : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
 
-        sphere.transform.localScale = Vector3.one;
+        sphere.transform.localScale = new Vector3(1, 1, 1);
 
     }
+    //void FixedUpdate()
+    //{
+    //    if(sphere.transform.localScale == startScale)
+    //    {
+    //        sphere.transform.localScale -= new Vector3(1, 1, 1) * 0.01f;
+    //    }
+        
+        
+
+        
+        //if (sphere.transform.localScale == Vector3.one * 3f)
+        //{
+        //    sphere.transform.localScale = sphere.transform.localScale -= new Vector3(1, 1, 1) * 0.01f;
+        //}
+        
+        
+        
+        //if (sphere.transform.localScale != Vector3.one)
+        //{
+        //    sphere.transform.localScale = sphere.transform.localScale -= new Vector3(1, 1, 1) * 0.01f;
+        //}
+
+        //{
+        //    sphere.transform.localScale = Vector3.one * 0.1f;
+        //}
+
+    //}
 }
