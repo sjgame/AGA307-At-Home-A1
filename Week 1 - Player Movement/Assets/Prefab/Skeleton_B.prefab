@@ -1310,6 +1310,8 @@ MonoBehaviour:
   FloatingTextPrefab: {fileID: 7446426920523133406, guid: 3a9c3bed73fc5fc40b5a08fc8814a0b2, type: 3}
   variedSize: 0
   type: 0
+  scaleFactor: 0
+  timer: 0
 --- !u!114 &6622974806047913882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,9 +1324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4115324ae63e247b7f2f8302484b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.16
+  speed: 6.49
   target: {fileID: 0}
-  minDist: 2.97
+  minDist: 33.2
+  maxdist: 3.89
   mySpeed: 4.13
   myPatrol: 1
   myType: 0
@@ -1338,7 +1341,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 9.62
   m_Drag: 0.96
-  m_AngularDrag: 0
+  m_AngularDrag: 2.13
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

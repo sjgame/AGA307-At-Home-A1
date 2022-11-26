@@ -9,6 +9,9 @@ TagManager:
   - Load
   - DoorText
   - Enter
+  - Teleporter
+  - Sign
+  - Sphere
   layers:
   - Default
   - TransparentFX

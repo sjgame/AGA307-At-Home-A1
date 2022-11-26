@@ -13,6 +13,7 @@ public class EnemyMove : GameBehaviour
     public Transform target;
 
     public float minDist = 1f;
+    public float maxdist = 3f;
 
     public float mySpeed;
 
@@ -24,12 +25,7 @@ public class EnemyMove : GameBehaviour
 
     void Start()
     {
-        
-
         //Setup();
-
-        
-
         if (target == null)
         {
             if (GameObject.FindWithTag("Player") != null)
@@ -42,17 +38,14 @@ public class EnemyMove : GameBehaviour
                 SetupAI();
             }
         }
-
         void SetupAI()
         {
             startPos = Instantiate(new GameObject(), transform.position, transform.rotation).transform;
             endPos = _EM.GetRandomSpawnPoint();
             moveToPos = endPos;
         }
-
         IEnumerator Move()
         {
-
             switch (myPatrol)
             {
                 case PatrolType.Linear:
@@ -77,24 +70,17 @@ public class EnemyMove : GameBehaviour
                     reverse = !reverse;
                     break;
             }
-
             transform.LookAt(moveToPos);
-
+            
             while (Vector3.Distance(transform.position, moveToPos.position) > 0.3f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, moveToPos.position, Time.deltaTime
                     * mySpeed);
-
-
                 yield return null;
             }
-
             yield return new WaitForSeconds(1);
-
             StartCoroutine(Move());
         }
-
-
     }
 
     void Update()
@@ -105,10 +91,10 @@ public class EnemyMove : GameBehaviour
         transform.LookAt(target);
         //get the distance between the chaser and the target
         float distance = Vector3.Distance(transform.position, target.position);
-        //so long as the chaser is farther away than the minimum distance, move towards it at rate speed.
-        
-        if (distance > minDist)
+        //so long as the chaser is further away than the minimum distance, move towards it at rate speed.
+        if (distance < minDist && distance > maxdist)
             transform.position += transform.forward * speed * Time.deltaTime;
+        
     }
     // Set the target of the chaser
     public void SetTarget(Transform newTarget)

@@ -22,6 +22,7 @@ public class DoorDestroy : MonoBehaviour
     /// </summary>
     void Update()
     {
+        
         if (!target1 && !target2)
         {
             Destroy(door1);
